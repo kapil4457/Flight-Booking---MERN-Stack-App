@@ -1,0 +1,58 @@
+
+.image-steps{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding-top: 50px;
+    // border-top: 2px  solid #969696;
+    // border-bottom: 2px  solid #969696;
+
+}
+.image-of-flight{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+.step-to-book{
+    font-weight: 500;
+}
+ol.c {
+  list-style-type: decimal;
+}
+.discr-of{
+    padding-left: 50px;
+}
+.image-of-flight{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+   
+}
+.Flight-p{
+    text-align: center;
+    padding-top:  20px;
+    font-size: 3rem;
+}
+.flight-instruction{
+    flex-wrap: wrap;
+}
+.Tour-p{
+   text-align: center;
+    padding-top:  30px;
+   font-size: 3rem;
+    font-weight: 600;
+}
+.text-of-instruct{
+   color:red;
+}
+.text-of-instruct-head{
+    color: rgb(243, 196, 43);
+}
+@media screen and (max-width: 588px) {
+	.image-steps{
+        display: flex;
+        flex-direction: column;
+    }
+    .text-of-instruct-head{
+        font-size: 2rem;
+    }
+}
