@@ -32,8 +32,7 @@ app.use("/api/v1/", hotel);
 app.use("/api/v1/", tour);
 app.use("/api/v1/", stripe);
 
-app.use(express.static(path.join(__dirname, "../frontend/src")));
-
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("*",(req,res)=>{
     res.sendFile(path.resolve(path.join(__dirname, "../frontend/build/index.html")))
 })
