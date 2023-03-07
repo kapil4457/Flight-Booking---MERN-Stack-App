@@ -21,6 +21,8 @@ import  {UserHandle}  from './components/AdminDashBoard/UserHandle/UserHandle';
 import EventHandle from './components/AdminDashBoard/Extras/EventHandle';
 import HotelHandle from './components/AdminDashBoard/Extras/HotelHandle';
 
+
+// Frontend
 // Stripe API
 // Password : jahnviKangle@1234
 // Email  : janhvikangle@gmail.com

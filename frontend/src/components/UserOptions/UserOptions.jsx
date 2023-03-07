@@ -73,6 +73,13 @@ const UserOptions = () => {
         navigate("/contact");
       },
     },
+    {
+      label: "Account",
+      icon: "pi pi-user",
+      command: () => {
+        navigate("/me");
+      },
+    },
   ];
   return (
     <div className="card-t">
