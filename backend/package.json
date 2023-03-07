@@ -2,7 +2,7 @@
   "name": "backend",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "build" : "npm install --force && npm install --prefix frontend &&  npm run build --prefix frontend"
+    "build" : "npm install --force && npm install --prefix ../frontend &&  npm run build --prefix ../frontend"
   },
   "dependencies": {
     "@stripe/stripe-js": "^1.48.0",
