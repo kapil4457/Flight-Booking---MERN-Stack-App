@@ -156,7 +156,7 @@ const TourHandle = () => {
     );
 
     if (data?.success == true) {
-      toast.success("Flight Created SuccessFully !!");
+      toast.success("Tour Created SuccessFully !!");
       appearCard2();
 
       setTimeout(() => {
@@ -184,7 +184,7 @@ const TourHandle = () => {
           url: data?.url,
         };
         setNewAvatar(thisData);
-        toast.success("Profile Picture Uploaded Successfully!!");
+        toast.success("Image Uploaded Successfully!!");
         setTimeout(() => {
           updateFlightHandler2();
         }, 2000);
