@@ -39,7 +39,6 @@ const FlightPage = () => {
         `/api/v1/search/flight?keyword=${keyword}`
       );
 
-      console.log(data);
       setFlights(data);
     }
   };
