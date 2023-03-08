@@ -11,3 +11,11 @@
 .social-icons{
       padding: 10px;
 }
+
+
+@media all and (max-width:450px){
+    #footer-we{
+        flex-direction:column
+    }
+
+}

@@ -6,11 +6,13 @@ export const Footer = () => {
     <>
       <div>
         <footer id="footer-we">
-          <i class="bx social-icons bxs-plane icon"></i>
-          <i class="bx social-icons bx-building icon"></i>
-          <i class="bx social-icons bx-walk icon"></i>
-          <i class="bx social-icons bxs-plane icon"></i>
-          <p>© Copyright 2018 AirGo</p>
+          <div>
+            <i class="bx social-icons bxs-plane icon"></i>
+            <i class="bx social-icons bx-building icon"></i>
+            <i class="bx social-icons bx-walk icon"></i>
+            <i class="bx social-icons bxs-plane icon"></i>
+          </div>
+          <p>© Copyright 2018 JMR Airlines</p>
         </footer>
       </div>
     </>

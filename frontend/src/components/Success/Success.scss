@@ -13,3 +13,13 @@
         font-size:5rem;
     }
 }
+
+@media all and (max-width:1100px){
+  .content-check , .green{
+    font-size:1.5rem !important;
+
+    div{
+      font-size: 1.4rem !important;
+    }
+  }
+}

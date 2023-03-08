@@ -29,20 +29,12 @@ const UserOptions = () => {
     }, 3000);
   };
 
-  useEffect(() => {
-    getUserDetails();
-  }, []);
-  const items = [
+  let items = [
     {
-      label: user ? "Logout" : "Login",
-      icon: user ? "pi-arrow-circle-up" : "pi-arrow-circle-down",
-
+      label: "Account",
+      icon: "pi pi-user",
       command: () => {
-        if (user) {
-          LogoutHandler();
-        } else {
-          navigate("/login");
-        }
+        navigate("/me");
       },
     },
     {
@@ -74,13 +66,55 @@ const UserOptions = () => {
       },
     },
     {
-      label: "Account",
-      icon: "pi pi-user",
+      label: "Instructions",
+      icon: "pi pi-tablet",
       command: () => {
-        navigate("/me");
+        navigate("/instructions");
+      },
+    },
+    {
+      label: user ? "Logout" : "Login",
+      icon: user ? "pi pi-sign-out" : "pi pi-sign-in",
+      command: () => {
+        if (user) {
+          LogoutHandler();
+        } else {
+          navigate("/login");
+        }
       },
     },
   ];
+
+  const addDashBoard = () => {
+    items.push({
+      label: "DashBoard",
+      icon: "pi pi-box",
+      command: () => {
+        navigate("/dashboard/users");
+      },
+    });
+  };
+  useEffect(() => {
+    // if (!user) {
+    //   getUserDetails();
+    //   items.push({
+    //     label: "Login",
+    //     icon: "pi pi-sign-in ",
+    //     command: () => {
+    //       navigate("/login");
+    //     },
+    //   });
+    // }
+
+    // if (user) {
+    //   items.push();
+    // }
+
+    if (user?.role == "admin") {
+      addDashBoard();
+    }
+  }, [user]);
+
   return (
     <div className="card-t">
       <div style={{ position: "relative", height: "500px" }}>

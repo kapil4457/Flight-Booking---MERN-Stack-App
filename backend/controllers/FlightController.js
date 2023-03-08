@@ -1,3 +1,4 @@
+const { set } = require("mongoose");
 const Flight = require("../models/FlightModel");
 
 
@@ -42,6 +43,8 @@ exports.deleteFlight = (async (req, res, next) => {
     });
 
 
+
+
     
 exports.searchFlights = (async (req, res, next) => {
    try{
@@ -60,9 +63,11 @@ if(to && !from){
        if(from && to){
 
           
-          const flights = await Flight.find({$or : [{"from" : {'$regex' : '.*' + `${from}` + '.*' ,$options : 'i'}},
-       {"to" : {'$regex' : '.*' + `${to}` + '.*' ,$options : 'i'}},
-      ]});
+      //     const flights = await Flight.find({$or : [{"from" : {'$regex' : '.*' + `${from}` + '.*' ,$options : 'i'}},
+      //  {"to" : {'$regex' : '.*' + `${to}` + '.*' ,$options : 'i'}},
+      // ]});
+      
+          const flights = await Flight.find({from : from , to : to});
       
       await res.status(200).send({success : true ,flights})
    }else if(keyword){
@@ -82,6 +87,26 @@ if(to && !from){
    });
 
 
+
+   exports.getAllFroms = (async (req, res, next) => {
+      try{
+        const flights =await  Flight.find();
+        let arr = [];
+         let lenght = flights.length;
+        for(var i =0 ; i  < lenght ; i ++){
+           arr.push(flights[i].from);
+        }
+
+        arr = [...new Set(arr)]
+        
+         await res.status(200).send({success : true ,arr})
+         return;
+      }catch(err) {
+         await  res.send({success:false  , message : err.stack});
+      }
+      });
+
+
    exports.getAllFlights = (async (req, res, next) => {
       try{
         const flights =await  Flight.find()
@@ -95,9 +120,21 @@ if(to && !from){
 
       exports.getAllTos = (async (req, res, next) => {
          try{
-            const {destination} = req.body;
-           const flights =await  Flight.find({destination:destination})
-            await res.status(200).send({success : true ,flights})
+            const destination = req.params.destination;
+           const flights =await  Flight.find({"from": {$eq : destination}})
+            
+            var arr = [];
+            
+            let length = flights.length;
+            
+            for(var i =0 ; i < length ; i ++)
+            {
+               arr.push(flights[i].to);
+            }  
+            console.log("arr" , arr)
+
+arr =[... new Set(arr)]
+          await res.status(200).send({success : true ,arr})
             return;
          }catch(err) {
             await  res.send({success:false  , message : err.stack});

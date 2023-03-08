@@ -9,6 +9,7 @@ const AdminNavBar = () => {
       <NavLink to="/dashboard/tours">Tours</NavLink>
       <NavLink to="/dashboard/events">Events</NavLink>
       <NavLink to="/dashboard/hotels">Hotels</NavLink>
+      <NavLink to="/dashboard/posters">Posters</NavLink>
     </div>
   );
 };

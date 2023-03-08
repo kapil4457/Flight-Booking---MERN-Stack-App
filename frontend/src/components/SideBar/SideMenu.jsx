@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { isAuthenticated } from "../../auth/isAuthenticated";
 import { toast } from "react-toastify";
 import "./SideMenu.scss";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -93,6 +92,12 @@ const SideMenu = () => {
                 <NavLink to="/contact">
                   <i className="bx bx-phone icon"></i>
                   <span className="text nav-text">Contact Us</span>
+                </NavLink>
+              </li>
+              <li className="nav-link">
+                <NavLink to="/instructions">
+                  <i className="bx bx-book-open icon"></i>
+                  <span className="text nav-text">Instruction</span>
                 </NavLink>
               </li>
               {user?.role == "admin" ? (

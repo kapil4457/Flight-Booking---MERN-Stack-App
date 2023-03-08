@@ -1,15 +1,56 @@
 .carousal_main{
     overflow-y:hidden;
     border-radius: 10px  ;
-
+    height:35rem;
+    overflow: hidden;
+    
     
     .image{
+        overflow: hidden;
         border-radius: 10px ;
         width: 100%;
         object-fit: unset; 
         overflow:hidden;
-        height:23rem;
-        
+        height:90%;
+
+
 
     }
 }
+
+
+@media all and (max-height:900px) and (max-width:1000px){
+    .carousal_main{
+        height:25rem;
+    }
+
+    .image{
+        height:96%
+    }
+
+}
+@media all and (max-height:900px){
+    .carousal_main{
+        height:20rem;
+    }
+
+    .image{
+        height:96%
+    }
+
+}
+
+
+
+
+@media all and (max-height:700px){
+    .carousal_main{
+        height:25rem;
+    }
+    .image{
+        height:96%
+    }
+
+}
+
+

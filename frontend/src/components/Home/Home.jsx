@@ -12,22 +12,15 @@ const Row = ({ item }) => {
   const redirectPage = async () => {
     navigate(`/tours/${item?._id}`);
   };
+  console.log(item);
   return (
     <div>
       <div className="row">
         <div>
-          <a href="" class="card card-2">
+          <div class="card card-2">
             <img src={item?.image?.url} class="card__image" alt="" />
             <div class="card__overlay">
               <div class="card__header">
-                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                  <path />
-                </svg>
-                <img
-                  class="card__thumb"
-                  src="https://i.imgur.com/7D7I6dI.png"
-                  alt=""
-                />
                 <div class="card__header-text">
                   <h3 class="card__title">{item.name}</h3>
                 </div>
@@ -60,24 +53,17 @@ const Row = ({ item }) => {
                 <span class="pricet">Price: ₹{item?.packagePrice}</span>
               </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const item = {
-  image: {
-    url: "https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
-  },
-  name: "Goa Tour",
-  packagePrice: 12200,
-};
-
 export const Home = () => {
   const [latest, setLatest] = useState(null);
   const [trending, setTrending] = useState(null);
+  const [images, setImages] = useState();
   const fetchLastest = async () => {
     try {
       const { data } = await axios.get("/api/v1/get/latest/tours");
@@ -95,9 +81,16 @@ export const Home = () => {
     }
   };
 
+  const fetchAllImages = async () => {
+    const { data } = await axios.get("/api/v1/get/all/posters");
+    setImages(data?.poster);
+    console.log(data);
+  };
+
   useEffect(() => {
     fetchLastest();
     fetchTrending();
+    fetchAllImages();
   }, []);
   return (
     <>
@@ -106,7 +99,7 @@ export const Home = () => {
       ) : (
         <>
           <div className="content home-main color-change">
-            <Slider />
+            <Slider dataSlider={images} />
             <h2>Trending</h2>
             <div className="genreBox">
               {trending?.map((item) => (

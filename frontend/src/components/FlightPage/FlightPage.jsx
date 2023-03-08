@@ -10,6 +10,7 @@ const FlightPage = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [allTos, setAllTos] = useState(null);
+  const [allFroms, setAllFroms] = useState(null);
   const [user, setUser] = useState(null);
   const getUserDetails = async () => {
     const { data } = await axios.get("/api/v1/me");
@@ -20,7 +21,7 @@ const FlightPage = () => {
     setFlights(data);
   };
   const getAllTos = async () => {
-    const { data } = await axios.get("/api/v1/all/tos");
+    const { data } = await axios.get(`/api/v1/all/tos/${from}`);
     console.log(data);
     setAllTos(data);
   };
@@ -36,12 +37,21 @@ const FlightPage = () => {
       const { data } = await axios.get(
         `/api/v1/search/flight?keyword=${keyword}`
       );
+
+      console.log(data);
       setFlights(data);
     }
+  };
+
+  const getAllFroms = async () => {
+    const { data } = await axios.get("/api/v1/all/froms");
+    console.log(data);
+    setAllFroms(data?.arr);
   };
   useEffect(() => {
     fetchFlights();
     getUserDetails();
+    getAllFroms();
 
     if (to != "" || keyword != "") {
       searchFlights();
@@ -76,8 +86,8 @@ const FlightPage = () => {
               <option value="" hidden>
                 From
               </option>
-              {flights?.flights?.map((fli, key) => (
-                <option value={fli?.from}>{fli?.from}</option>
+              {allFroms?.map((fli, key) => (
+                <option value={fli}>{fli}</option>
               ))}
             </select>
           </div>
@@ -94,8 +104,8 @@ const FlightPage = () => {
               <option value="" hidden>
                 To..
               </option>
-              {allTos?.flights?.map((fli, key) => (
-                <option value={fli?.to}>{fli?.to}</option>
+              {allTos?.arr?.map((fli, key) => (
+                <option value={fli}>{fli}</option>
               ))}
             </select>
           </div>
@@ -105,7 +115,7 @@ const FlightPage = () => {
       {flights == null ? (
         <Loading />
       ) : (
-        <div>
+        <div className="flight-div">
           {flights?.flights?.map((flight) => (
             <FlightPageCard item={flight} isAllowed={user?.success} />
           ))}

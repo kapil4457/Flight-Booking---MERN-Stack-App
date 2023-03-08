@@ -20,6 +20,9 @@ import  TourHandle  from './components/AdminDashBoard/TourHandle/TourHandle';
 import  {UserHandle}  from './components/AdminDashBoard/UserHandle/UserHandle';
 import EventHandle from './components/AdminDashBoard/Extras/EventHandle';
 import HotelHandle from './components/AdminDashBoard/Extras/HotelHandle';
+import PosterHandle from './components/AdminDashBoard/Extras/PosterHandle';
+import { Instruction } from './components/Instructions/Instructions';
+import PageNotFound  from './components/PageNotFound/PageNotFound.jsx';
 
 
 // Frontend
@@ -48,8 +51,10 @@ function App() {
   <Route path="/dashboard/users" element={<UserHandle />} />
   <Route path="/dashboard/events" element={<EventHandle />} />
   <Route path="/dashboard/hotels" element={<HotelHandle />} />
-  
-
+  <Route path="/dashboard/posters" element={<PosterHandle />} />
+  <Route path="/instructions" element={<Instruction />} />
+  <Route path="*"  element={<PageNotFound />} />
+    
   
 </Routes>
 <Footer />

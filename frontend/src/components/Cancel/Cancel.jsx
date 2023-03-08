@@ -8,6 +8,10 @@ const Cancel = () => {
       navigate("/");
     }
     localStorage.removeItem("booking");
+
+    setTimeout(() => {
+      navigate("/");
+    }, 4000);
   };
   useEffect(() => {
     cancelPayment();

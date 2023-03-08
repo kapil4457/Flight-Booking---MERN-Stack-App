@@ -32,10 +32,7 @@ const FlightHandleCard = ({ item, updateFunc, appearCard }) => {
           <b>To : </b>
           {item?.to}
         </p>
-        <p>
-          <b>To : </b>
-          {item?.to}
-        </p>
+
         <p>
           <b>Departure Date : </b>
           {item?.departure}

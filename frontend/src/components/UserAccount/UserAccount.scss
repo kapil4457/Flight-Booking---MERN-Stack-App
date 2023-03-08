@@ -167,6 +167,12 @@ width:100%;
 }
 
 
+@media all and (max-width:900px){
+         .no-flights , .no-tours{
+                font-size:1.5rem !important
+            }
+}
+
 @media all and (max-width: 1500px) and (max-height: 950px) {
 
     .user-details-cont{
@@ -187,6 +193,7 @@ width:100%;
         
         grid-template-columns: repeat(3,1fr);
     }
+       
 }
 
 @media all and (max-width: 1100px) and (max-height: 950px) {
@@ -199,9 +206,10 @@ width:100%;
         
         grid-template-columns: repeat(2,1fr);
     }
+      
 }
 
-@media all and (max-width: 500px) and (max-height: 950px) {
+@media all and (max-width: 600px) and (max-height: 950px) {
     .my-flights .all-flights .flight-main-cards{
         grid-template-columns: 1fr;
     }

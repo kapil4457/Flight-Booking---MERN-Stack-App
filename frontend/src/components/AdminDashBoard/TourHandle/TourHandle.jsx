@@ -173,7 +173,7 @@ const TourHandle = () => {
       formData.append("file", file);
       formData.append("upload_preset", "flight-booking");
 
-      toast.warn("Uploading the Profile Picture");
+      toast.warn("Uploading the Tour Picture");
       const { data } = await axios.post(
         "https://api.cloudinary.com/v1_1/kapil4457/image/upload",
         formData
@@ -185,9 +185,6 @@ const TourHandle = () => {
         };
         setNewAvatar(thisData);
         toast.success("Image Uploaded Successfully!!");
-        setTimeout(() => {
-          updateFlightHandler2();
-        }, 2000);
       }, 6000);
     } else {
       toast.error("Please select an image !!");
@@ -195,6 +192,11 @@ const TourHandle = () => {
     }
   };
 
+  useEffect(() => {
+    if (newAvatar && newAvatar?.public_id != "") {
+      updateFlightHandler2();
+    }
+  }, [newAvatar]);
   useEffect(() => {
     if (destination != "") {
       allFlightsFetch();

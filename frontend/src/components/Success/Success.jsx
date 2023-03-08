@@ -35,6 +35,9 @@ const Success = () => {
         );
         console.log(data);
         toast.success(data.message);
+        setTimeout(() => {
+          navigate("/");
+        }, 4000);
       }
     } catch (err) {}
   };
