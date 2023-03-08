@@ -31,19 +31,24 @@ const UserOptions = () => {
 
   let items = [
     {
+      label: user ? "Logout" : "Login",
+      icon: user ? "pi pi-sign-out" : "pi pi-sign-in",
+      command: () => {
+        if (user) {
+          LogoutHandler();
+        } else {
+          navigate("/login");
+        }
+      },
+    },
+    {
       label: "Account",
       icon: "pi pi-user",
       command: () => {
         navigate("/me");
       },
     },
-    {
-      label: "Home",
-      icon: "pi pi-home",
-      command: () => {
-        navigate("/");
-      },
-    },
+
     {
       label: "Flights",
       icon: "pi pi-car",
@@ -73,14 +78,10 @@ const UserOptions = () => {
       },
     },
     {
-      label: user ? "Logout" : "Login",
-      icon: user ? "pi pi-sign-out" : "pi pi-sign-in",
+      label: "Home",
+      icon: "pi pi-home",
       command: () => {
-        if (user) {
-          LogoutHandler();
-        } else {
-          navigate("/login");
-        }
+        navigate("/");
       },
     },
   ];
