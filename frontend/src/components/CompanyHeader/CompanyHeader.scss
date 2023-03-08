@@ -1,0 +1,20 @@
+.company-heading{
+    height:6rem;
+    display:flex;
+    justify-content: left;
+    padding:0 7rem;
+    font-size:2rem;
+    font-weight:650;
+    align-items: center;
+    gap:1rem;
+
+    img{
+        height:3rem;
+    }
+}
+
+@media all and (max-width:1100px){
+    .company-heading{
+        padding:0 1rem;
+    }
+}

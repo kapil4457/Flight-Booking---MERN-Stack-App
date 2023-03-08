@@ -6,7 +6,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css"; // theme
 import "primereact/resources/primereact.css"; // core css
 import "primeicons/primeicons.css"; // icons
 import "primeflex/primeflex.css";
-
+import { toast as toaster } from "react-toastify";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
@@ -21,8 +21,8 @@ const UserOptions = () => {
   };
 
   const LogoutHandler = async () => {
+    toaster.success("Logged Out SuccessFully");
     await axios.post("/api/v1/logout");
-    toast.success("Logged Out SuccessFully");
 
     setTimeout(() => {
       window.location.reload();
@@ -31,10 +31,11 @@ const UserOptions = () => {
 
   let items = [
     {
-      label: user ? "Logout" : "Login",
-      icon: user ? "pi pi-sign-out" : "pi pi-sign-in",
+      label: user == null ? "Logout" : "Login",
+      icon: user == null ? "pi pi-sign-out" : "pi pi-sign-in",
       command: () => {
-        if (user) {
+        if (user != null) {
+          console.log("Ourt");
           LogoutHandler();
         } else {
           navigate("/login");
@@ -51,7 +52,7 @@ const UserOptions = () => {
 
     {
       label: "Flights",
-      icon: "pi pi-car",
+      icon: "bx bxs-plane icon",
       command: () => {
         navigate("/flight");
       },
@@ -111,6 +112,9 @@ const UserOptions = () => {
     //   items.push();
     // }
 
+    if (!user) {
+      getUserDetails();
+    }
     if (user?.role == "admin") {
       addDashBoard();
     }

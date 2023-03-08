@@ -23,7 +23,7 @@ import HotelHandle from './components/AdminDashBoard/Extras/HotelHandle';
 import PosterHandle from './components/AdminDashBoard/Extras/PosterHandle';
 import { Instruction } from './components/Instructions/Instructions';
 import PageNotFound  from './components/PageNotFound/PageNotFound.jsx';
-
+import CompanyHeader from './components/CompanyHeader/CompanyHeader';
 
 // Frontend
 // Stripe API
@@ -33,6 +33,8 @@ import PageNotFound  from './components/PageNotFound/PageNotFound.jsx';
 
 function App() {
   return (
+    <>
+      <CompanyHeader />
     <div className="App">
 <SideMenu/>
 <UserOptions />
@@ -63,6 +65,7 @@ function App() {
 <ToastContainer  style={{zIndex:99999999999999}}/>
 
     </div>
+    </>
   );
 }
 

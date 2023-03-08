@@ -49,8 +49,8 @@ exports.deleteFlight = (async (req, res, next) => {
 exports.searchFlights = (async (req, res, next) => {
    try{
 
+      //  const { from , to , keyword} = req.query;
        const { from , to , keyword} = req.query;
-
 
 if(to && !from){
        
@@ -67,7 +67,8 @@ if(to && !from){
       //  {"to" : {'$regex' : '.*' + `${to}` + '.*' ,$options : 'i'}},
       // ]});
       
-          const flights = await Flight.find({from : from , to : to});
+          const flights = await Flight.find(
+            {"from" : {$eq : from} , "to" : {$eq :to}});
       
       await res.status(200).send({success : true ,flights})
    }else if(keyword){
@@ -131,7 +132,6 @@ if(to && !from){
             {
                arr.push(flights[i].to);
             }  
-            console.log("arr" , arr)
 
 arr =[... new Set(arr)]
           await res.status(200).send({success : true ,arr})

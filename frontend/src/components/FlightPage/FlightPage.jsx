@@ -22,6 +22,7 @@ const FlightPage = () => {
   };
   const getAllTos = async () => {
     const { data } = await axios.get(`/api/v1/all/tos/${from}`);
+
     console.log(data);
     setAllTos(data);
   };
@@ -63,7 +64,7 @@ const FlightPage = () => {
   return (
     <div className="content color-change flightpage">
       <div className="nav ">
-        <div className="searchBar-flight">
+        {/* <div className="searchBar-flight">
           <input
             type="text"
             placeholder="Type in your destination"
@@ -72,7 +73,7 @@ const FlightPage = () => {
               setKeyWord(e.target.value);
             }}
           />
-        </div>
+        </div> */}
         <div className="select-bars">
           <div class="select navlinks">
             <select
