@@ -19,6 +19,7 @@ const UserAccount = () => {
   const [success, setSuccess] = useState();
   const getUserDetails = async () => {
     const { data } = await axios.get("/api/v1/me");
+    console.log(data);
     setUser(data);
     setSuccess(data?.success);
     setName(data?.user?.name);
@@ -80,14 +81,17 @@ const UserAccount = () => {
         setNewAvatar(thisData);
         setAvatar(thisData);
         toast.success("Profile Picture Uploaded Successfully!!");
-        setTimeout(() => {
-          updateProfile();
-        }, 2000);
       }, 6000);
     } else {
       updateProfile();
     }
   };
+
+  useEffect(() => {
+    if (newAvatar?.url) {
+      updateProfile();
+    }
+  }, [newAvatar]);
 
   const updateProfile = async () => {
     setTimeout(async () => {
@@ -120,11 +124,7 @@ const UserAccount = () => {
                 Update User Details
               </button>
               <div className="user-avatar">
-                <img
-                  src={avatar?.url}
-                  alt=""
-                  style={{ borderRadius: "50%", objectFit: "contain" }}
-                />
+                <img src={avatar?.url} alt="" style={{ borderRadius: "50%" }} />
                 <div className="profile-pic-input">
                   <input type="file" onChange={handleFile} />
                   <button

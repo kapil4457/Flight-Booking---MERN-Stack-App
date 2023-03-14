@@ -1,18 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.d72cdc80.css",
-    "main.js": "/static/js/main.f69e7d21.js",
+    "main.css": "/static/css/main.9e8d09d8.css",
+    "main.js": "/static/js/main.b5b908bd.js",
+    "static/media/tour1.png": "/static/media/tour1.35de10f2109fe8eec155.png",
+    "static/media/flight1.png": "/static/media/flight1.f2bb518fa432097c53d6.png",
     "static/media/primeicons.svg": "/static/media/primeicons.e1441b135b3ca9ad643c.svg",
+    "static/media/tour3.png": "/static/media/tour3.ba5d6969893a5c64130d.png",
+    "static/media/tour2.png": "/static/media/tour2.fcff0ae85d25cb62c61b.png",
+    "static/media/flight2.png": "/static/media/flight2.2839b148264b3c290e42.png",
+    "static/media/flight3.png": "/static/media/flight3.4682135670829ef5266f.png",
+    "static/media/flight4.png": "/static/media/flight4.b6e5c71bc5758e187214.png",
+    "static/media/tour4.png": "/static/media/tour4.b6e5c71bc5758e187214.png",
     "static/media/primeicons.eot": "/static/media/primeicons.d44157bdfa026dc877af.eot",
     "static/media/primeicons.woff": "/static/media/primeicons.10d3152104f2208ac82a.woff",
     "static/media/primeicons.ttf": "/static/media/primeicons.ea5358601d0a3fd6670b.ttf",
+    "static/media/logo.png": "/static/media/logo.1325f0c001c98bf73511.png",
     "static/media/primeicons.woff2": "/static/media/primeicons.78172950b335ccdb94e2.woff2",
     "index.html": "/index.html",
-    "main.d72cdc80.css.map": "/static/css/main.d72cdc80.css.map",
-    "main.f69e7d21.js.map": "/static/js/main.f69e7d21.js.map"
+    "main.9e8d09d8.css.map": "/static/css/main.9e8d09d8.css.map",
+    "main.b5b908bd.js.map": "/static/js/main.b5b908bd.js.map"
   },
   "entrypoints": [
-    "static/css/main.d72cdc80.css",
-    "static/js/main.f69e7d21.js"
+    "static/css/main.9e8d09d8.css",
+    "static/js/main.b5b908bd.js"
   ]
 }

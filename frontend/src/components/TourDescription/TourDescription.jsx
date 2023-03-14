@@ -33,6 +33,15 @@ const TourDescription = () => {
     setSuggestedTours(arr);
   };
 
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
+
   const bookTour = async () => {
     if (user !== null && user?.user?.name) {
       toast("Initializing Payment !!");
@@ -87,19 +96,19 @@ const TourDescription = () => {
                   <li>Landing Time : {tour?.tour?.flights?.landingTime}</li>
                 </div>
               </div>
-              <div className="tour-info-child">
+              {/* <div className="tour-info-child">
                 <b>Hotel Details : </b>
 
                 <li>Hotel Name : {tour?.tour?.hotelDetails?.name}</li>
-              </div>
-              <div className="tour-info-child">
+              </div> */}
+              {/* <div className="tour-info-child">
                 <b>Events Included : </b>
                 {tour?.tour?.eventDetails?.map((item, key) => (
                   <li>{item.name}</li>
                 ))}
-              </div>
+              </div> */}
               <div className="tour-info-child">
-                <button onClick={bookTour}>Book Tour</button>
+                <button onClick={bookTour}>Book Flight</button>
                 <button
                   onClick={() => {
                     navigate("/contact");

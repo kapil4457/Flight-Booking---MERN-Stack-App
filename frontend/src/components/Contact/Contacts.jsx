@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./contact.scss";
 import { toast } from "react-toastify";
 export const Contacts = () => {
@@ -37,6 +37,15 @@ export const Contacts = () => {
     setEmail("");
     setMessage("");
   };
+
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
 
   return (
     <div className="main-contact content">

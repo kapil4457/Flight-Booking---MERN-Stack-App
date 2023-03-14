@@ -48,6 +48,8 @@ export const LoginAndOut = () => {
       return;
     }
 
+    toast.warning("Please wait...Logging you in");
+
     const info = {
       email: loginEmail,
       password: loginPassword,
@@ -58,8 +60,8 @@ export const LoginAndOut = () => {
     if (data?.success == true) {
       toast.success("Login in SuccessFull");
       toast.success(`Welcome Back ${data?.user?.username}`);
-      navigate("/");
       setTimeout(() => {
+        navigate("/");
         window.location.reload();
       }, 4000);
     } else {
@@ -68,7 +70,7 @@ export const LoginAndOut = () => {
   };
 
   return (
-    <div className="login-body">
+    <div className="login-body content">
       <div>
         <section class="wrapper">
           <div

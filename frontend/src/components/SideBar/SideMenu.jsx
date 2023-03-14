@@ -20,6 +20,16 @@ const SideMenu = () => {
       window.location.reload();
     }, 3000);
   };
+
+
+  const sideBarHandler = async()=>{
+      document.querySelector("nav").classList.add("close");
+              document
+                .querySelector(".content")
+                .classList.remove("content-big");
+document.querySelector(".company-heading").classList.remove("content-big")
+
+  }
   useEffect(() => {
     getUserDetails();
   }, []);
@@ -30,7 +40,9 @@ const SideMenu = () => {
           <div
             className="image-text"
             style={{ cursor: "pointer" }}
+
             onClick={() => {
+              sideBarHandler()
               navigate("/me");
             }}
           >
@@ -59,6 +71,7 @@ const SideMenu = () => {
               document
                 .querySelector(".content")
                 .classList.toggle("content-big");
+                document.querySelector(".company-heading").classList.toggle("content-big")
             }}
           ></i>
         </header>
@@ -67,14 +80,14 @@ const SideMenu = () => {
           <div className="menu">
             <ul className="menu-links">
               <li className="nav-link">
-                <NavLink to="/">
+                <NavLink to="/" onClick={sideBarHandler}>
                   <i className="bx bx-home-alt icon"></i>
                   <span className="text nav-text">Home</span>
                 </NavLink>
               </li>
 
               <li className="nav-link">
-                <NavLink to="/flight">
+                <NavLink to="/flight" onClick={sideBarHandler} >
                   <i className="bx bxs-plane icon"></i>
 
                   <span className="text nav-text">Flights</span>
@@ -82,27 +95,27 @@ const SideMenu = () => {
               </li>
 
               <li className="nav-link">
-                <NavLink to="/tour">
+                <NavLink to="/tour" onClick={sideBarHandler}>
                   <i className="bx bx-book icon"></i>
                   <span className="text nav-text">Tour</span>
                 </NavLink>
               </li>
 
               <li className="nav-link">
-                <NavLink to="/contact">
+                <NavLink to="/contact" onClick={sideBarHandler}>
                   <i className="bx bx-phone icon"></i>
                   <span className="text nav-text">Contact Us</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to="/instructions">
+                <NavLink to="/instructions" onClick={sideBarHandler}>
                   <i className="bx bx-book-open icon"></i>
                   <span className="text nav-text">Instruction</span>
                 </NavLink>
               </li>
               {user?.role == "admin" ? (
                 <li className="nav-link">
-                  <NavLink to="/dashboard/users">
+                  <NavLink to="/dashboard/users" onClick={sideBarHandler}>
                     <i className="bx bxs-dashboard icon"></i>
                     <span className="text nav-text">DashBoard</span>
                   </NavLink>
@@ -118,7 +131,10 @@ const SideMenu = () => {
               <li
                 className=""
                 style={{ cursor: "pointer" }}
-                onClick={LogoutHandler}
+                onClick={()=>{
+                  LogoutHandler()
+                  sideBarHandler()
+                }}
               >
                 <i className="bx bx-log-out icon"></i>
                 <span className="text nav-text">Logout</span>
@@ -128,6 +144,7 @@ const SideMenu = () => {
                 className=""
                 style={{ cursor: "pointer" }}
                 onClick={() => {
+                  sideBarHandler()
                   navigate("/login");
                 }}
               >

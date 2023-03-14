@@ -100,19 +100,29 @@ export const Home = () => {
         <>
           <div className="content home-main color-change">
             <Slider dataSlider={images} />
+            <div className="home-sliider-div">
+
+            <div className="inner-div-home-slider">
+
             <h2>Trending</h2>
             <div className="genreBox">
               {trending?.map((item) => (
                 <Row item={item} />
-              ))}
+                ))}
+                </div>
             </div>
+            <div>
+
             <h2>Latest</h2>
             <div className="genreBox">
               {latest?.map((item) => (
                 <Row item={item} />
-              ))}
+                ))}
             </div>
+                </div>
           </div>
+                      </div>
+
         </>
       )}
     </>

@@ -52,6 +52,7 @@ const TourHandle = () => {
 
   const [display, setDisplay] = useState("none");
   const appearCard = () => {
+    handler();
     if (display == "none") {
       setDisplay("flex");
     } else {
@@ -61,6 +62,7 @@ const TourHandle = () => {
 
   const [display2, setDisplay2] = useState("none");
   const appearCard2 = () => {
+    handler();
     if (display2 == "none") {
       setDisplay2("flex");
     } else {
@@ -98,6 +100,15 @@ const TourHandle = () => {
       reader.readAsDataURL(file);
     });
   };
+
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
 
   // Updating details
   const updateFlightHandler = async () => {

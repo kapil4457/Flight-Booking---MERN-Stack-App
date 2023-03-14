@@ -57,6 +57,15 @@ const HotelHandle = () => {
     getUserDetails();
   });
 
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
+
   useEffect(() => {
     if (role == "user") {
       toast.error("You are not Authorized !!");

@@ -31,6 +31,15 @@ const PosterHandle = () => {
 
   const navigate = useNavigate();
 
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
+
   const getUserDetails = async () => {
     const { data } = await axios.get("/api/v1/me");
     setUser(data);
@@ -92,7 +101,7 @@ const PosterHandle = () => {
   });
 
   useEffect(() => {
-    if (avatar?.public_id != "") {
+    if (avatar?.public_id != "" && avatar?.public_id != null) {
       createPosterHandler();
     }
   }, [avatar]);

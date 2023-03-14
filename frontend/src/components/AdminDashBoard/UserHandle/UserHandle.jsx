@@ -18,8 +18,18 @@ export const UserHandle = () => {
   };
   const [updateCardDetails, setUpdateCardDetails] = useState(null);
 
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
+
   const [display, setDisplay] = useState("none");
   const appearCard = () => {
+    handler();
     if (display == "none") {
       setDisplay("flex");
     } else {

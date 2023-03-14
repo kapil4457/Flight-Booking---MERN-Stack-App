@@ -38,6 +38,7 @@ const FlightHandle = () => {
 
   const [display, setDisplay] = useState("none");
   const appearCard = () => {
+    handler();
     if (display == "none") {
       setDisplay("flex");
     } else {
@@ -46,6 +47,7 @@ const FlightHandle = () => {
   };
   const [display2, setDisplay2] = useState("none");
   const appearCard2 = () => {
+    handler();
     if (display2 == "none") {
       setDisplay2("flex");
     } else {
@@ -118,6 +120,15 @@ const FlightHandle = () => {
       toast.error(data?.message);
     }
   };
+
+  const handler = () => {
+    document.querySelector("nav")?.classList.add("close");
+    document.querySelector(".content")?.classList.remove("content-big");
+    document.querySelector(".company-heading")?.classList.remove("content-big");
+  };
+  useEffect(() => {
+    handler();
+  }, []);
 
   useEffect(() => {
     if (role == "user") {
